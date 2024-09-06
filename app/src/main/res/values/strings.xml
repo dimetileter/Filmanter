@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Filmanter</string>
+    <string name="introduce1">Koleksiyonlar \nOluştur, \nEn harika anları \ntakrar tekrar hatırla</string>
+    <string name="introduce2">Notlar ekleyin, Puanlayın, Listeleyin</string>
+    <string name="next">Devam</string>
+    <string name="start">Başla</string>
+    <string name="help">Yardım</string>
+    <string name="ready_to_start">Başlamaya Hazırız</string>
+    <string name="soru_isareti">\?</string>
+</resources>
