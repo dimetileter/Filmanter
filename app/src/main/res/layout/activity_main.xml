@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<androidx.constraintlayout.motion.widget.MotionLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,6 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradiant_background"
+    app:layoutDescription="@xml/activity_main_scene"
     tools:context=".MainActivity">
 
     <LinearLayout
@@ -47,26 +48,35 @@
     </LinearLayout>
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:cardCornerRadius="40dp"
+        android:maxWidth="444dp"
+        android:maxHeight="505dp"
         app:cardBackgroundColor="@android:color/transparent"
+        app:cardCornerRadius="40dp"
+        app:cardElevation="0dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline2"
         app:layout_constraintEnd_toStartOf="@+id/guideline4"
+        app:layout_constraintHeight_max="505dp"
         app:layout_constraintStart_toStartOf="@+id/guideline3"
-        app:layout_constraintTop_toTopOf="@+id/guideline">
+        app:layout_constraintTop_toTopOf="@+id/guideline"
+        app:layout_constraintWidth_max="444dp">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <androidx.constraintlayout.motion.widget.MotionLayout
+            android:id="@+id/constraintLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/metalic_rectangle_outline"
-            android:padding="1dp">
+            android:padding="1dp"
+            app:layoutDescription="@xml/activity_main_xml_constraintlayout_scene">
 
             <LinearLayout
+                android:id="@+id/linearLayout2"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:orientation="horizontal"
-                app:layout_constraintBottom_toTopOf="@+id/inner_guidelineTop"
+                app:layout_constraintBottom_toTopOf="@id/inner_guidelineTop"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
@@ -94,13 +104,14 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/linearLayout3"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:orientation="horizontal"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/inner_guidelineBottom">
+                app:layout_constraintTop_toBottomOf="@id/inner_guidelineBottom">
 
                 <ImageView
                     android:layout_width="match_parent"
@@ -121,24 +132,32 @@
                 android:id="@+id/imageView6"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
+                android:maxWidth="408dp"
+                android:maxHeight="153dp"
                 android:scaleType="centerCrop"
                 app:layout_constraintBottom_toTopOf="@+id/inner_guidelineBottom"
                 app:layout_constraintEnd_toStartOf="@+id/imageView7"
+                app:layout_constraintHeight_max="153dp"
                 app:layout_constraintHorizontal_weight="2"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/inner_guidelineTop"
+                app:layout_constraintWidth_max="408dp"
                 app:srcCompat="@drawable/the_last_of_us" />
 
             <ImageView
                 android:id="@+id/imageView7"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
+                android:maxWidth="153dp"
+                android:maxHeight="153dp"
                 android:scaleType="centerCrop"
                 app:layout_constraintBottom_toTopOf="@+id/inner_guidelineBottom"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHeight_max="153dp"
                 app:layout_constraintHorizontal_weight="1"
                 app:layout_constraintStart_toEndOf="@+id/imageView6"
                 app:layout_constraintTop_toTopOf="@+id/inner_guidelineTop"
+                app:layout_constraintWidth_max="153dp"
                 app:srcCompat="@drawable/succession_cover" />
 
             <androidx.constraintlayout.widget.Guideline
@@ -155,7 +174,7 @@
                 android:orientation="horizontal"
                 app:layout_constraintGuide_percent="0.66" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.motion.widget.MotionLayout>
     </androidx.cardview.widget.CardView>
 
     <TextView
@@ -208,26 +227,26 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.60" />
+        app:layout_constraintGuide_percent="0.58147717" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.04622871" />
+        app:layout_constraintGuide_percent="0.0375" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.95" />
+        app:layout_constraintGuide_percent="0.9625" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.85" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        app:layout_constraintGuide_percent="0.82766706" />
+</androidx.constraintlayout.motion.widget.MotionLayout>
