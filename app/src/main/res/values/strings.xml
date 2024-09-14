@@ -1,7 +1,8 @@
 <resources>
     <string name="app_name">Filmanter</string>
     <string name="introduce1">Koleksiyonlar \nOluştur, \nEn harika anları \ntakrar tekrar hatırla</string>
-    <string name="introduce2">Notlar ekleyin, Puanlayın, Listeleyin</string>
+    <string name="introduce2">Notlar ekleyin, \nPuanlayın, \nListeleyin</string>
+    <string name="introduce3">Başlama tarihi: 15.01.2023 \nSezon sayısı:1 \nEn son izlenen bölüm: 5 \nKategori: Aksiyon-Macera</string>
     <string name="next">Devam</string>
     <string name="start">Başla</string>
     <string name="help">Yardım</string>
