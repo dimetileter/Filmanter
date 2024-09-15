@@ -9,11 +9,11 @@
         motion:duration="500" motion:motionInterpolator="easeInOut">
        <KeyFrameSet>
            <KeyAttribute
-               motion:motionTarget="@+id/textView"
+               motion:motionTarget="@+id/inner_introduce_text"
                motion:framePosition="50"
                android:alpha="0.0" />
            <KeyAttribute
-               motion:motionTarget="@+id/textView"
+               motion:motionTarget="@+id/inner_introduce_text"
                motion:framePosition="70"
                android:translationY="20dp" />
        </KeyFrameSet>
@@ -21,14 +21,14 @@
 
     <ConstraintSet android:id="@+id/start">
         <Constraint
-            android:id="@+id/textView"
+            android:id="@+id/inner_introduce_text"
             motion:layout_constraintEnd_toEndOf="parent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:visibility="invisible"
-            motion:layout_constraintStart_toStartOf="@+id/imageView6"
+            motion:layout_constraintStart_toStartOf="@+id/mainCover"
             motion:layout_constraintBottom_toBottomOf="parent"
-            motion:layout_constraintTop_toBottomOf="@id/imageView6"
+            motion:layout_constraintTop_toBottomOf="@id/mainCover"
             android:alpha="0.0"
             motion:layout_constraintHorizontal_bias="0.0"
             android:translationY="20dp" />
@@ -58,7 +58,7 @@
             motion:layout_constraintBottom_toTopOf="@+id/inner_guidelineBottom"
             motion:layout_constraintEnd_toEndOf="parent" />
         <Constraint
-            android:id="@id/imageView6"
+            android:id="@id/mainCover"
             motion:layout_constraintStart_toStartOf="parent"
             motion:layout_constraintEnd_toEndOf="parent"
             motion:layout_constraintTop_toTopOf="parent"
@@ -72,14 +72,14 @@
             android:layout_marginTop="24dp"
             motion:layout_constraintVertical_bias="0.00999999"/>
         <Constraint
-            android:id="@+id/textView"
+            android:id="@+id/inner_introduce_text"
             motion:layout_constraintEnd_toEndOf="parent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:visibility="visible"
-            motion:layout_constraintStart_toStartOf="@+id/imageView6"
+            motion:layout_constraintStart_toStartOf="@+id/mainCover"
             motion:layout_constraintBottom_toBottomOf="parent"
-            motion:layout_constraintTop_toBottomOf="@id/imageView6"
+            motion:layout_constraintTop_toBottomOf="@id/mainCover"
             android:alpha="1.0"
             motion:layout_constraintHorizontal_bias="0.0"
             motion:layout_constraintVertical_bias="0.30"/>

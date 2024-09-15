@@ -1,15 +1,24 @@
 package com.aliosman.filmanter
 
+import android.animation.ObjectAnimator
+import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.view.View
+import android.view.animation.AccelerateDecelerateInterpolator
+import android.view.animation.AccelerateInterpolator
+import android.view.animation.Animation
 import android.view.animation.AnimationUtils
+import android.view.animation.BounceInterpolator
+import android.view.animation.TranslateAnimation
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.aliosman.filmanter.databinding.ActivityMainBinding
+import com.aliosman.filmanter.ui.MainPage
 
 class MainActivity : AppCompatActivity() {
 
@@ -17,10 +26,8 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         enableEdgeToEdge()
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -41,6 +48,7 @@ class MainActivity : AppCompatActivity() {
             when(num) {
                 0 -> secondIntroduce()
                 1 -> thirdIntroduce()
+                2 -> actionToNextActivity()
             }
             num += 1
         }
@@ -63,11 +71,56 @@ class MainActivity : AppCompatActivity() {
         },  100)
         Handler().postDelayed({
             introduceTextAnimation(introText2)
-        }, 400)
+        }, 300)
     }
 
     // Butona tıklandığında 3. tanıtım sayfaınsa git
     private fun thirdIntroduce() {
-        Toast.makeText(this, "[Test]İkinci tıklama", Toast.LENGTH_SHORT).show()
+        val fadeOut = AnimationUtils.loadAnimation(this, android.R.anim.fade_out)
+        val fadeIn = AnimationUtils.loadAnimation(this, android.R.anim.fade_in)
+        val nextButton = binding.buttonNext
+
+        // Butonun hareket animasyonu
+        val animator = ObjectAnimator.ofFloat(nextButton, "translationY", -300f)
+        animator.duration = 300
+        animator.interpolator = AccelerateDecelerateInterpolator()
+        animator.start()
+
+        // Buton metninin animasyonu
+        val translateAnimation = TranslateAnimation(0f, 0f, 0f, -300f)
+        translateAnimation.duration = 300 // 300ms boyunca sürdür
+        translateAnimation.interpolator = AccelerateDecelerateInterpolator()
+        translateAnimation.fillAfter = true // Animasyon tamamlanınca bitir
+
+        // Film resmini fadeout ile kaybet
+        binding.mainCover.let {
+            it.startAnimation(fadeOut)
+            it.visibility = View.INVISIBLE
+        }
+
+        // Film örnek metnini fadeout ile kaybet
+        binding.innerIntroduceText.let {
+            it.startAnimation(fadeOut)
+            it.visibility = View.INVISIBLE
+        }
+
+        // Başlama metnini fadeIn ile getir
+        binding.textReadyToStart.let {
+            it.startAnimation(fadeIn)
+            it.visibility = View.VISIBLE
+        }
+
+        // Buton metnini fadeOut ile kaybet
+        binding.txtNext.let {
+            it.textSize = 16f
+            it.startAnimation(translateAnimation)
+            val start = getString(R.string.start)
+            it.text = start
+        }
+    }
+
+    private fun actionToNextActivity() {
+        val action = Intent(this, MainPage::class.java)
+        startActivity(action)
     }
 }
